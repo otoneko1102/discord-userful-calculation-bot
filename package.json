@@ -1,5 +1,5 @@
 {
-  "name": "音楽Bot",
+  "name": "MathBot",
   "main": "main.js",
   "scripts": {
     "start": "node main.js"
