@@ -1,0 +1,18 @@
+{
+  "name": "音楽Bot",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "discord.js": "^13.16.0",
+    "express": "^4.18.2",
+    "ms": "3.0.0-canary.1",
+    "opusscript": "0.0.8",
+    "better-sqlite3": "^8.4.0",
+    "mathjs": "^11.8.2"
+  },
+  "engines": {
+    "node": "16.x"
+  }
+}
