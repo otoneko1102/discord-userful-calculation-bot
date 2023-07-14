@@ -1,6 +1,6 @@
 # discord-userful-calculation-bot
 Discord bot witten by discord.js v13 and mathjs for advanced calculations. You can use [Glitch](https://glitch.com/) to make it work.<br>
-Please use the following GS code to permanently run Glitch with [GAS (Google Apps Script)](https://script.google.com/).
+Use the following GS code to permanently run Glitch with [GAS (Google Apps Script)](https://script.google.com/).
 ```
 /*
 Paste this code into GAS.
