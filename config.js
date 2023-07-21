@@ -3,6 +3,7 @@ const c = require("./commands/math/conv.js")
 const d = require("./commands/math/decide.js")
 const m = require("./commands/math/math.js");
 const r = require("./commands/math/random.js")
+const s = require("./commands/math/script.js")
 
 module.exports = {
         px: 'c#',
@@ -10,5 +11,6 @@ module.exports = {
         ccmds: c.cmds,
         dcmds: d.cmds,
         cmds: m.cmds,
-        rcmds: r.cmds, 
+        rcmds: r.cmds,
+        scmds: s.cmds,
 };
