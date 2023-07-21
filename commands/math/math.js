@@ -3,7 +3,7 @@ const math = require('mathjs');
 const Database = require('better-sqlite3');
 const db = new Database('prefixes.db');
 
-const cmds = ['calc','root','rec','abs','ave','pi','napier','tri','tri-sin','pt','heron','bret','sin','cos','tan','sin-r','cos-r','tan-r','npr','ncr'];
+const cmds = ['calc','root','rec','abs','ave','pi','napier','tri','tri-sin','pt','heron','bret','sin','cos','tan','sin-r','cos-r','tan-r','npr','ncr','nhr'];
 
 module.exports = {
     name: 'math',
@@ -604,6 +604,49 @@ module.exports = {
           const n_str = value[0].replace(/[1-9\-\.0]/g, match => replacements[match]);
           const r_str = value[1].replace(/[1-9\-\.0]/g, match => replacements[match]);
           s_embed.setDescription(`${n_str}C${r_str} = **${result}**`);
+          message.reply({embeds: [s_embed]});
+        }catch{
+          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {formula1},{formula2}\``);
+          message.reply({embeds: [c_err_embed]})
+        }
+      };
+      //nhr
+      if (args[0] === cmds[20]){
+        if(!args[1]) {
+          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {value1},{value2}\``);
+          message.reply({embeds: [m_err_embed]});
+          return;
+        };
+        try{
+          const value = args.slice(1).join(' ').replace(/\*\*/g,'^').replace(/×/g,'*').replace(/÷/g,'/').split(',');
+          const n = Math.round(math.evaluate(value[0]) * (10 ** 15)) / (10 ** 15);
+          const r = Math.round(math.evaluate(value[1]) * (10 ** 15)) / (10 ** 15);
+            if(isNaN(n) || isNaN(r) || n < 0 || r < 0 || n < r || n % 1 != 0 || r % 1 != 0) {
+              m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {formula1},{formula2}\``);
+              message.reply({embeds: [m_err_embed]})
+              return;
+            };
+          let result = 1;
+          for (let i = 0; i < r; i++) {
+            result *= ((n + r - 1) - i);
+          }
+          const rx = Math.round(math.evaluate(`${r}!`) * (10 ** 15)) / (10 ** 15);
+          result = Math.round((result / rx) * (10 ** 15)) / (10 ** 15);
+          const replacements = {
+            '1': '₁',
+            '2': '₂',
+            '3': '₃',
+            '4': '₄',
+            '5': '₅',
+            '6': '₆',
+            '7': '₇',
+            '8': '₈',
+            '9': '₉',
+            '0': '₀'
+          };
+          const n_str = value[0].replace(/[1-9\-\.0]/g, match => replacements[match]);
+          const r_str = value[1].replace(/[1-9\-\.0]/g, match => replacements[match]);
+          s_embed.setDescription(`${n_str}H${r_str} = **${result}**`);
           message.reply({embeds: [s_embed]});
         }catch{
           c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {formula1},{formula2}\``);
