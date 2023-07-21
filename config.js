@@ -6,7 +6,7 @@ const r = require("./commands/math/random.js")
 const s = require("./commands/math/script.js")
 
 module.exports = {
-        px: 'c#',
+        px: '', //set prefix
         playing: `discord.js v${version.dependencies["discord.js"].replace('^','')} | mathjs v${version.dependencies["mathjs"].replace('^','')}`,
         ccmds: c.cmds,
         dcmds: d.cmds,
