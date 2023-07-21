@@ -25,7 +25,7 @@ module.exports = {
         embed.setTitle(client.user.username);
         const commands = client.commands.filter(x => x.showHelp !== false);
         embed.setDescription(client.config.playing.replace(/ \| /g,'\n'))
-        embed.addField(`${commands.size} commands\n➥${client.config.ccmds.length} conv types\n➥${client.config.dcmds.length} decide types\n➥${client.config.cmds.length} math types\n➥${client.config.rcmds.length} random types`, commands.map(x => `**${x.utilisation.replace(/{prefix}/g,prefix)}** ${x.aliases[0] ? ` (aliase: **${x.aliases.map(y => y).join('/')}**)` : ''}\n${x.description ?? '---'}`).join('\n'));
+        embed.addField(`${commands.size} commands\n➥${client.config.ccmds.length} conv types\n➥${client.config.dcmds.length} decide types\n➥${client.config.cmds.length} math types\n➥${client.config.rcmds.length} random types\n➥${client.config.scmds.length} script types`, commands.map(x => `**${x.utilisation.replace(/{prefix}/g,prefix)}** ${x.aliases[0] ? ` (aliase: **${x.aliases.map(y => y).join('/')}**)` : ''}\n${x.description ?? '---'}`).join('\n'));
         embed.setFooter({text: `{} = Required,() = Optional\nUsage example: ${prefix}{command}`})
 
         message.reply({ embeds: [embed] });
