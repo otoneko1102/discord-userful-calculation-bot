@@ -14,7 +14,7 @@ module.exports = {
       const btn = new MessageButton();
       btn.setLabel('Invite bot');
       btn.setStyle('LINK');
-      btn.setURL('https://discord.com/api/oauth2/authorize?client_id=1108178870429036686&permissions=412384488512&scope=bot')
+      btn.setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=412384488512&scope=bot`)
       const row = new MessageActionRow().addComponents(btn);
       const guildId = message.guild.id;
       const prefix = getPrefix(guildId) || client.config.px;
