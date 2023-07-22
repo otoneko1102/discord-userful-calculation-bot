@@ -16,8 +16,8 @@ After that, please execute it once and allow the access authority etc.
 Set the GAS timer at 5 minute intervals and run it.
 */
 
-var glitch_project_name = "" // Enter your Glitch project name here.
-var GLITCH_URL = `https://${glitch_project_name}.glitch.me`;
+var GLITCH_PROJECT_NAME = "" // Enter your Glitch project name here.
+var GLITCH_URL = `https://${GLITCH_PROJECT_NAME}.glitch.me`;
 function wakeGlitch(){
  var json = {
    'type':'wake'
