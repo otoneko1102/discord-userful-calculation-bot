@@ -87,13 +87,14 @@ module.exports = {
         });
         const data = await response.json();
         console.log(data);
-        s_embed.setDescription(`\`\`\`${data.program_message}\n${data.program_output}\`\`\``);
+        s_embed.setDescription(`> Code:\n\`\`\`js\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
         message.reply({ embeds: [s_embed] });
       } catch (error) {
         console.error(error);
         c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
         message.reply({ embeds: [c_err_embed] });
       }
+      return;
     }
     //py
     if (args[0] === cmds[1]) {
@@ -114,13 +115,14 @@ module.exports = {
         });
         const data = await response.json();
         console.log(data);
-        s_embed.setDescription(`\`\`\`${data.program_message}\n${data.program_output}\`\`\``);
+        s_embed.setDescription(`> Code:\n\`\`\`py\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
         message.reply({ embeds: [s_embed] });
       } catch (error) {
         console.error(error);
         c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
         message.reply({ embeds: [c_err_embed] });
       }
+      return;
     }
   },
 };
