@@ -11,10 +11,30 @@ const language = {
   "py": {
     "type": "py",
     "compiler": "cpython-3.10.2"
+  },
+  "c": {
+    "type": "c",
+    "compiler": "gcc-12.2.0"
+  },
+  "c#": {
+    "type": "csharp",
+    "compiler": "gcc-12.2.0"
+  },
+  "c++": {
+    "type": "cpp",
+    "compiler": "gcc-12.2.0"
+  },
+  "java": {
+    "type": "java",
+    "compiler": "openjdk-jdk-15.0.3+2"
+  },
+  "ts": {
+    "type": "typescript",
+    "compiler": "typescript-4.2.4"
   }
 };
 
-const cmds = ['js', 'py'];
+const cmds = ['js', 'py','c','c#','c++','java','ts'];
 
 module.exports = {
   name: 'script',
@@ -48,7 +68,7 @@ module.exports = {
     }
 
     if (!cmds.includes(args[0])) {
-      embed.setTitle(`Failed: Wrong type.`)
+      embed.setTitle(`Failed: Wrong lang.`)
         .addField(`Usage example`, `\`${prefix}script {lang} {code}\``)
         .addField('type', `${cmds}`)
         .setFooter('{text: {} = Required, () = Optional}')
@@ -116,6 +136,146 @@ module.exports = {
         const data = await response.json();
         console.log(data);
         s_embed.setDescription(`> Code:\n\`\`\`py\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
+        message.reply({ embeds: [s_embed] });
+      } catch (error) {
+        console.error(error);
+        c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [c_err_embed] });
+      }
+      return;
+    }
+    //c
+    if (args[0] === cmds[2]) {
+      if (!args[1]) {
+        m_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [m_err_embed] });
+        return;
+      }
+      try {
+        const code = args.slice(1).join(' ');
+        const response = await fetch('https://wandbox.org/api/compile.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            code,
+            compiler: language.c.compiler,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        s_embed.setDescription(`> Code:\n\`\`\`c\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
+        message.reply({ embeds: [s_embed] });
+      } catch (error) {
+        console.error(error);
+        c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [c_err_embed] });
+      }
+      return;
+    }
+    //c#
+    if (args[0] === cmds[3]) {
+      if (!args[1]) {
+        m_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [m_err_embed] });
+        return;
+      }
+      try {
+        const code = args.slice(1).join(' ');
+        const response = await fetch('https://wandbox.org/api/compile.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            code,
+            compiler: language["c#"].compiler,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        s_embed.setDescription(`> Code:\n\`\`\`csharp\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
+        message.reply({ embeds: [s_embed] });
+      } catch (error) {
+        console.error(error);
+        c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [c_err_embed] });
+      }
+      return;
+    }
+    //c++
+    if (args[0] === cmds[4]) {
+      if (!args[1]) {
+        m_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [m_err_embed] });
+        return;
+      }
+      try {
+        const code = args.slice(1).join(' ');
+        const response = await fetch('https://wandbox.org/api/compile.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            code,
+            compiler: language["c++"].compiler,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        s_embed.setDescription(`> Code:\n\`\`\`cpp\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
+        message.reply({ embeds: [s_embed] });
+      } catch (error) {
+        console.error(error);
+        c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [c_err_embed] });
+      }
+      return;
+    }
+    //java
+    if (args[0] === cmds[5]) {
+      if (!args[1]) {
+        m_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [m_err_embed] });
+        return;
+      }
+      try {
+        const code = args.slice(1).join(' ');
+        const response = await fetch('https://wandbox.org/api/compile.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            code,
+            compiler: language.java.compiler,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        s_embed.setDescription(`> Code:\n\`\`\`typescript\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
+        message.reply({ embeds: [s_embed] });
+      } catch (error) {
+        console.error(error);
+        c_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [c_err_embed] });
+      }
+      return;
+    }
+    //ts
+    if (args[0] === cmds[6]) {
+      if (!args[1]) {
+        m_err_embed.addField(`Usage example`, `\`${prefix}script ${args[0]} {code}\``);
+        message.reply({ embeds: [m_err_embed] });
+        return;
+      }
+      try {
+        const code = args.slice(1).join(' ');
+        const response = await fetch('https://wandbox.org/api/compile.json', {
+          method: 'POST',
+          body: JSON.stringify({
+            code,
+            compiler: language.ts.compiler,
+          }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const data = await response.json();
+        console.log(data);
+        s_embed.setDescription(`> Code:\n\`\`\`typescript\n${code}\n\`\`\`\n> Output:\n\`\`\`\n${data.program_output}\n\`\`\``);
         message.reply({ embeds: [s_embed] });
       } catch (error) {
         console.error(error);
