@@ -1,7 +1,7 @@
 # discord-userful-calculation-bot
 Discord bot witten by discord.js v13 and mathjs for advanced calculations. You can use [Glitch](https://glitch.com/) to make it work.<br>
 **Anyone can copy and use this code.**<br>
-Japanese explanation [here](https://note.com/otoneko1102/n/n10987618eae5).
+**__Japanese explanation [here](https://note.com/otoneko1102/n/n10987618eae5).__**
 ## AD
 My discord bot invite link [here](https://discord.com/api/oauth2/authorize?client_id=1108178870429036686&permissions=412384488512&scope=bot) written with this code.<br>
 Please add bot to your Discord server🙏🙏
