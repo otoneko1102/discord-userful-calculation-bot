@@ -1,5 +1,5 @@
 # Base
-```
+```js
 //example: calc (commands/math/...)
       if (args[0] === cmds[0]){
         if(!args[1]) {
