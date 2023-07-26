@@ -38,7 +38,7 @@ const cmds = ['js', 'py','c','c#','c++','java','ts'];
 
 module.exports = {
   name: 'script',
-  aliases: ['s'],
+  aliases: ['scr'],
   description: `Run script.(β)\n(type: ${cmds})`,
   showHelp: true,
   utilisation: '{prefix}script {lang} {code}',
