@@ -8,9 +8,13 @@ module.exports = (client, message) => {
     const prefix = getPrefix(guildId) || client.config.px;
       
     function getPrefix(guildId) {
-      const query = db.prepare('SELECT prefix FROM prefixes WHERE guild_id = ?');
-      const result = query.get(guildId);
-      return result ? result.prefix : null;
+      try{
+        const query = db.prepare('SELECT prefix FROM prefixes WHERE guild_id = ?');
+        const result = query.get(guildId);
+        return result ? result.prefix : null;
+      } catch {
+        return null;
+      }
     };
 
     if (message.content.indexOf(prefix) !== 0) return;
