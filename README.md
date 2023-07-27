@@ -36,7 +36,7 @@ function sendGlitch(uri, json){
 }
 
 ```
-### ⚠WARNING⚠
+## ⚠WARNING⚠
 If you try to import this repository and use it in Glitch before 2023/07/26, you may encounter an error. If so, import it again.
 ### I have no plans to create a project with the same functionality in discord.js v14.
 If you have any questions or problems, please contact **@otoneko.** on Discord. You can get support [here](https://discord.gg/yKW8wWKCnS).
