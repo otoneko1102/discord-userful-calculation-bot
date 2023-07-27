@@ -31,7 +31,8 @@ module.exports = {
                  .addField(`Usage example`,`\`${prefix}prefix (value)\``)
                  .setFooter({text: `{} = Required,() = Optional`})
                  .setColor('RED');
-      const c_err_embed = embed.setTitle(`Failed: Error.`)
+      const c_err_embed = new MessageEmbed()
+                 .setTitle(`Failed: Error.`)
                  .setFooter({ text: `{} = Required,() = Optional` })
                  .addField(`Usage example`,`${prefix}prefix (value)`)
                  .setColor('RED');
