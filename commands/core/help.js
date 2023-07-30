@@ -11,11 +11,6 @@ module.exports = {
 
     execute(client, message, args) {
       const embed = new MessageEmbed();
-      const c_err_embed = new MessageEmbed()
-                 .setTitle(`Failed: Error.`)
-                 .setFooter({ text: `{} = Required,() = Optional` })
-                 .addField(`Usage example`,`\`${prefix}help\``)
-                 .setColor('RED');
       const btn = new MessageButton();
       btn.setLabel('Invite bot');
       btn.setStyle('LINK');
@@ -23,6 +18,11 @@ module.exports = {
       const row = new MessageActionRow().addComponents(btn);
       const guildId = message.guild.id;
       const prefix = getPrefix(guildId) || client.config.px;
+      const c_err_embed = new MessageEmbed()
+                 .setTitle(`Failed: Error.`)
+                 .setFooter({ text: `{} = Required,() = Optional` })
+                 .addField(`Usage example`,`\`${prefix}help\``)
+                 .setColor('RED');
       
       function getPrefix(guildId) {
         try{
