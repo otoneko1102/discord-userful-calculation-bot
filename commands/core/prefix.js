@@ -34,7 +34,7 @@ module.exports = {
       const c_err_embed = new MessageEmbed()
                  .setTitle(`Failed: Error.`)
                  .setFooter({ text: `{} = Required,() = Optional` })
-                 .addField(`Usage example`,`${prefix}prefix (value)`)
+                 .addField(`Usage example`,`\`${prefix}prefix (value)\``)
                  .setColor('RED');
       
       if (!message.member.permissions.has("ADMINISTRATOR")) return message.reply({embeds: [err_embed]});
