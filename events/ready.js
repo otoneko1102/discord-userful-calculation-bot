@@ -1,8 +1,13 @@
 module.exports = async (client) => {
     console.log(`${client.user.username} Login!`);
-    const users = client.guilds.cache
+  let users;
+  try{
+    users = client.guilds.cache
     .map((guild) => guild.memberCount)
     .reduce((p, c) => p + c);
+  }catch{
+    users = null;
+  }
   const statuses = [
     {
       name: `${client.config.px}help | ${client.guilds.cache.size}servers`,
