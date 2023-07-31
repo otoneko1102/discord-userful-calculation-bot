@@ -6,6 +6,7 @@ module.exports = {
     name: 'serverlist',
     aliases: ['sl'],
     description: 'List of servers that the bot is joined.',
+    showHelp: true,
     utilisation: '{prefix}serverlist',
 
     async execute(client, message, args) {
