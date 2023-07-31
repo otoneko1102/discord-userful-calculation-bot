@@ -31,7 +31,7 @@ module.exports = {
       
       if(!args[0]) {
         embed.setTitle(`Failed: Missing parameters.`)
-             .addField(`Usage example`,`\`${prefix}math {type} {value}\``)
+             .addField(`Usage example`,`\`${prefix}shape {type} {value}\``)
              .addField('type',`${cmds}`)
              .setFooter({text: `{} = Required,() = Optional`})
              .setColor('RED');
@@ -42,7 +42,7 @@ module.exports = {
       
       if(!cmds.includes(args[0])) {
         embed.setTitle(`Failed: Wrong type.`)
-             .addField(`Usage example`,`\`${prefix}math {type} {value}\``)
+             .addField(`Usage example`,`\`${prefix}shape {type} {value}\``)
              .addField('type',`${cmds}`)
              .setFooter({text: `{} = Required,() = Optional`})
              .setColor('RED');
@@ -62,7 +62,7 @@ module.exports = {
       //tri
       if (args[0] === cmds[0]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side},{height}`);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side},{height}`);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -70,14 +70,14 @@ module.exports = {
           const value = args.slice(1).join(' ').replace(/\*\*/g,'^').replace(/×/g,'*').replace(/÷/g,'/').split(',');
           console.log(value);
           if (!value[0] || !value[1]){
-            c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side},{height}`);
+            c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side},{height}`);
             message.reply({embeds: [c_err_embed]});
             return;
           }
           const side = Math.round(math.evaluate(value[0]) * (10 ** 15)) / (10 ** 15);
           const height = Math.round(math.evaluate(value[1]) * (10 ** 15)) / (10 ** 15);
           if (side <= 0 || height <= 0){
-            c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side},{height}`);
+            c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side},{height}`);
             message.reply({embeds: [c_err_embed]});
             return;
           }
@@ -86,14 +86,14 @@ module.exports = {
           s_embed.setDescription(`Triangle area is **${result}**.`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side},{height}`);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side},{height}`);
           message.reply({embeds: [c_err_embed]});
         }
       };
       //tri-sin
       if (args[0] === cmds[1]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{angle}`);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{angle}`);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -101,7 +101,7 @@ module.exports = {
           const value = args.slice(1).join(' ').replace(/\*\*/g,'^').replace(/×/g,'*').replace(/÷/g,'/').split(',');
           console.log(value);
           if (!value[0] || !value[1]){
-            c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{angle}`);
+            c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{angle}`);
             message.reply({embeds: [c_err_embed]});
             return;
           }
@@ -109,7 +109,7 @@ module.exports = {
           const v2 = Math.round(math.evaluate(value[1]) * (10 ** 15)) / (10 ** 15);
           const sin = Math.round(Math.sin(math.evaluate(value[2]) * (Math.PI / 180)) * (10 ** 15)) / (10 ** 15);
           if (v1 <= 0 || v2 <= 0 || sin <= 0){
-            c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{angle}`);
+            c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{angle}`);
             message.reply({embeds: [c_err_embed]});
             return;
           }
@@ -118,14 +118,14 @@ module.exports = {
           s_embed.setDescription(`Triangle area is **${result}**.`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{angle}`);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{angle}`);
           message.reply({embeds: [c_err_embed]});
         }
       };
       //pt
       if (args[0] === cmds[2]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -137,7 +137,7 @@ module.exports = {
             const v1 = Math.round(math.evaluate(value[1]) * (10 ** 15)) / (10 ** 15);
             const v2 = Math.round(math.evaluate(value[2]) * (10 ** 15)) / (10 ** 15);
             if(v1 <= 0 || v2 <= 0 || v1 > v2){
-              c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+              c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
               message.reply({embeds: [c_err_embed]});
               return;
             }
@@ -146,7 +146,7 @@ module.exports = {
             const v1 = Math.round(math.evaluate(value[0]) * (10 ** 15)) / (10 ** 15);
             const v2 = Math.round(math.evaluate(value[2]) * (10 ** 15)) / (10 ** 15);
             if(v1 <= 0 || v2 <= 0 || v1 > v2){
-              c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+              c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
               message.reply({embeds: [c_err_embed]});
               return;
             }
@@ -155,13 +155,13 @@ module.exports = {
             const v1 = Math.round(math.evaluate(value[0]) * (10 ** 15)) / (10 ** 15);
             const v2 = Math.round(math.evaluate(value[1]) * (10 ** 15)) / (10 ** 15);
             if(v1 <= 0 || v2 <= 0 || v1 > v2){
-              c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+              c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
               message.reply({embeds: [c_err_embed]});
               return;
             }
             result = Math.sqrt((v1 ** 2) + (v2 ** 2));
           }else{
-            c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+            c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
             message.reply({embeds: [c_err_embed]});
             return;
           }
@@ -169,14 +169,14 @@ module.exports = {
           s_embed.setDescription(`x = **${result}**`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\`\n({side1} < {side3},\n{side2} < {side3},\nReplace {side} you want to answer with \`x\`.)`);
           message.reply({embeds: [c_err_embed]});
         }
       };
       //heron
       if (args[0] === cmds[3]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\``);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\``);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -189,21 +189,21 @@ module.exports = {
           const s = (r1 + r2 + r3) / 2;
           const result = Math.sqrt(s * (s - r1) * (s - r2) * (s - r3));
           if (isNaN(result) || result === 0){
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\``);
           message.reply({embeds: [c_err_embed]});
           return;
           }
           s_embed.setDescription(`Triangle area is **${result}**.`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3}\``);
           message.reply({embeds: [c_err_embed]});
         }
       };
       //bret
       if (args[0] === cmds[4]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -224,21 +224,21 @@ module.exports = {
           const result = Math.round(Math.sqrt((t - s1) * (t - s2) * (t - s3) * (t - s4) - u) * (10 ** 15)) / (10 ** 15);
 
           if (isNaN(result) || result === 0){
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
           message.reply({embeds: [c_err_embed]});
           return;
           }
           s_embed.setDescription(`Square area is **${result}**.`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {side1},{side2},{side3},{side4},{angle1},{angle2}\``);
           message.reply({embeds: [c_err_embed]});
         }
       };
       //sin
       if (args[0] === cmds[5]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -249,14 +249,14 @@ module.exports = {
           s_embed.setDescription(`sin(${value.replace(/ /g,'').replace(/\*/g,'×').replace(/\//g,'÷')})° = **${result}**`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
       //cos
       if (args[0] === cmds[6]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -267,14 +267,14 @@ module.exports = {
           s_embed.setDescription(`cos(${value.replace(/ /g,'').replace(/\*/g,'×').replace(/\//g,'÷')})° = **${result}**`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
       //tan
       if (args[0] === cmds[7]){
         if(!args[1]) {
-          m_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          m_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [m_err_embed]});
           return;
         };
@@ -291,7 +291,7 @@ module.exports = {
           s_embed.setDescription(`tan(${value.replace(/ /g,'').replace(/\*/g,'×').replace(/\//g,'÷')})° = **${result}**`);
           message.reply({embeds: [s_embed]});
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
@@ -300,7 +300,7 @@ module.exports = {
         try{
           message.reply('Coming soon...')
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
@@ -309,7 +309,7 @@ module.exports = {
         try{
           message.reply('Coming soon...')
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
@@ -318,7 +318,7 @@ module.exports = {
         try{
           message.reply('Coming soon...')
         }catch{
-          c_err_embed.addField(`Usage example`,`\`${prefix}math ${args[0]} {angle}\``);
+          c_err_embed.addField(`Usage example`,`\`${prefix}shape ${args[0]} {angle}\``);
           message.reply({embeds: [c_err_embed]})
         }
       };
