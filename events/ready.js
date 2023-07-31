@@ -15,10 +15,6 @@ module.exports = async (client) => {
     {
       name: `${client.config.playing}`,
       type: 'PLAYING',
-    },
-    {
-      name: `Math`,
-      type: `PLAYING`,
     }
   ];
 
