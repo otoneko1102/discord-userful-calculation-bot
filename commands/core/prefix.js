@@ -6,6 +6,7 @@ module.exports = {
     name: 'prefix',
     aliases: [],
     description: 'Prefix change to new prefix or reset.',
+    showHelp: true,
     utilisation: '{prefix}prefix (value)',
 
     execute(client, message, args) {
