@@ -4,6 +4,7 @@ module.exports = {
     name: 'ping',
     aliases: [],
     description: 'Pong.',
+    showHelp: true,
     utilisation: '{prefix}ping',
 
     execute(client, message) {
