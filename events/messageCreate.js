@@ -2,6 +2,7 @@ const Database = require('better-sqlite3');
 const db = new Database('prefixes.db');
 
 module.exports = (client, message) => {
+  try{
     if (message.author.bot || message.channel.type === 'dm') return;
 
     const guildId = message.guild.id;
@@ -25,4 +26,7 @@ module.exports = (client, message) => {
     const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 
     if (cmd) cmd.execute(client, message, args);
+  }catch{
+    console.log('error.')
+  };
 };
