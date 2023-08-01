@@ -121,6 +121,11 @@ module.exports = {
             const h10 = parseInt(num, x);
             const convertedNum = h10.toString(y);
             s_embed.setDescription(`${num} (hex: ${x}) = **${convertedNum}** (hex: ${y})`);
+            if (convertedNum === "NaN") {
+              c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36))`);
+              message.reply({ embeds: [c_err_embed] });
+              return;
+            }
             message.reply({ embeds: [s_embed] });
           } catch {
             c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36)`);
