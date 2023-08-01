@@ -98,7 +98,6 @@ module.exports = {
               return factors;
           }
       };
-
       //hex
       if (args[0] === cmds[1]) {
           if (!args[1]) {
@@ -107,28 +106,27 @@ module.exports = {
               return;
           };
           try {
-              const str = args.slice(1).join(' ').split(',');
-              const value = str[0].replace(/\*\*/g, '^').replace(/×/g, '*').replace(/÷/g, '/');
-              console.log(value);
-              const num = Math.round(math.evaluate(value) * (10 ** 15)) / (10 ** 15);
-              const x = Math.floor(parseInt(str[1]));
-              const y = Math.floor(parseInt(str[2]));
+            const str = args.slice(1).join(' ').split(',');
+            const value = str[0].replace(/\*\*/g, '^').replace(/×/g, '*').replace(/÷/g, '/');
+            console.log(value);
+            const num = str[0]
+            const x = Math.floor(parseInt(str[1]));
+            const y = Math.floor(parseInt(str[2]));
 
-              if (isNaN(num) || isNaN(x) || isNaN(y) || x < 2 || y < 2 || x > 36 || y > 36) {
-                  c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36))`);
-                  message.reply({ embeds: [c_err_embed] });
-                  return;
-              }
-
-              const convertedNum = num.toString(y);
-              s_embed.setDescription(`${num.toString(x)} (hex: ${x}) = **${convertedNum}** (hex: ${y})`);
-              message.reply({ embeds: [s_embed] });
-          } catch {
-              c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36)`);
+            if (isNaN(x) || isNaN(y) || x < 2 || y < 2 || x > 36 || y > 36) {
+              c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36))`);
               message.reply({ embeds: [c_err_embed] });
+              return;
+            }
+            const h10 = parseInt(num, x);
+            const convertedNum = h10.toString(y);
+            s_embed.setDescription(`${num} (hex: ${x}) = **${convertedNum}** (hex: ${y})`);
+            message.reply({ embeds: [s_embed] });
+          } catch {
+            c_err_embed.addField(`Usage example`, `\`${prefix}conv ${args[0]} {formula},{prev hex},{next hex}\`\n(2 ≦ {prev hex} ≦ 36,2 ≦ {next hex} ≦ 36)`);
+            message.reply({ embeds: [c_err_embed] });
           }
       };
-
       //frac
       if (args[0] === cmds[2]) {
           if (!args[1]) {
