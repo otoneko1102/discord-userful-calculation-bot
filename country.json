@@ -1,0 +1,121 @@
+{
+  "north_america": [
+    {
+      "name": {
+        "en": "the United States of America",
+        "ja": "アメリカ合衆国"
+      },
+      "flag": "🇺🇸",
+      "code": "us",
+      "capital": {
+        "en": "Washington D.C.",
+        "ja": "ワシントンD.C."
+      },
+      "founding": {
+        "year": 1776,
+        "month": 7,
+        "day": 4
+      }
+    },
+    {
+      "name": {
+        "en": "Canada",
+        "ja": "カナダ"
+      },
+      "flag": "🇨🇦",
+      "code": "ca",
+      "capital": {
+        "en": "Ottawa",
+        "ja": "オタワ"
+      },
+      "founding": {
+        "year": 1867,
+        "month": 7,
+        "day": 1
+      }
+    },
+    {
+      "name": {
+        "en": "United Mexican States",
+        "ja": "メキシコ合衆国"
+      },
+      "flag": "🇲🇽",
+      "code": "mx",
+      "capital": {
+        "en": "Mexico City",
+        "ja": "メキシコシティ"
+      },
+      "founding": {
+        "year": 1821,
+        "month": 9,
+        "day": 27
+      }
+    },
+    {
+      "name": {
+        "en": "Republic of Guatemala",
+        "ja": "グアテマラ共和国"
+      },
+      "flag": "🇬🇹",
+      "code": "gt",
+      "capital": {
+        "en": "Guatemala City",
+        "ja": "グアテマラシティ"
+      },
+      "founding": {
+        "year": 1821,
+        "month": 9,
+        "day": 15
+      }
+    },
+    {
+      "name": {
+        "en": "Belize",
+        "ja": "ベリーズ"
+      },
+      "flag": "🇧🇿",
+      "code": "bz",
+      "capital": {
+        "en": "Belmopan",
+        "ja": "ベルモパン"
+      },
+      "founding": {
+        "year": 1981,
+        "month": 9,
+        "day": 21
+      }
+    },
+    {
+      "name": {
+        "en": "Republic of El Salvador",
+        "ja": "エルサルバドル共和国"
+      },
+      "flag": "🇸🇻",
+      "code": "sv",
+      "capital": {
+        "en": "San Salvador",
+        "ja": "サンサルバドル"
+      },
+      "founding": {
+        "year": 1821,
+        "month": 9,
+        "day": 15
+      }
+    }
+  ],
+  "south_america": [
+    
+  ],
+  "europa": [
+    
+  ],
+  "asia": [
+    
+  ],
+  "africa": [
+    
+  ],
+  "oceania": [
+    
+  ]
+}
